@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="../../css/style-1603637922.css">
+<script src="../../js/jquery-3.5.1.min.js"></script>
+<script src="../../js/style.js"></script>
+
+
+<title>Tenmusu みんなでつくる、サイクルルート</title>
+<link rel="apple-touch-icon" type="image/png" href="../../img/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="../../img/favicons/icon-192x192.png"></head>
+
+<body>
+    <header class="login_header_pc">
+    <div class="pc_header">
+        <div class="logo"><a href="../../index.html"><img src="../../img/logo.svg"></a></div>
+        <ul class="content_link">
+            <li><a href="../list/list_root.php.html"><i class="fas fa-biking"></i>ルートを探す</a></li>
+            <li><a href="../list/list_shop.php.html"><i class="fas fa-store"></i>施設を探す</a></li>
+        </ul>
+        <div class="search">
+            <form>
+                <select>
+                    <option value="">コース</option>
+                    <option value="">施設</option>
+                    <option value="">ショップ</option>
+                </select>
+                <button><i class="fas fa-search"></i></button>
+                <input type="text" placeholder="地域 施設　など">
+            </form>
+        </div>
+        <ul class="announce_link">
+            <li><a href="../sub/news.php.html"><i class="fas fa-bell"></i><span class="txt">お知らせ</span><span class="notice">99</span></a></li>
+            <li><a href="shop.php.html#"><i class="fas fa-question"></i><span class="txt">ヘルプ</span></a></li>
+        </ul>
+        <div class="post_btn"><a href="../main/create_root.php.html">投稿</a></div>
+        <div class="account_link"><a href="shop.php.html#"><img src="../../img/profile.jpg"></a></div>
+        <div class="gnav_content">
+            <div class="bg"></div>
+            <nav>
+                <div class="close">閉じる<i class="fas fa-arrow-right"></i></div>
+                <ul>
+                    <li><a href="../main/create_root.php.html"><i class="fas fa-biking"></i>活動データ作成</a></li>
+                    <li><a href="../main/create_shop.php.html"><i class="fas fa-store"></i>施設データ作成</a></li>
+                    <li><a href="../main/create_community.php.html"><i class="fas fa-users"></i>コミュニティ作成</a></li>
+                    <li><a href="../main/create_event.php.html"><i class="fas fa-calendar-alt"></i>ツアー・イベント作成</a></li>
+                    <li><a href="../main/create_report.php.html"><i class="far fa-file-alt"></i>レポート作成</a></li>
+                </ul>
+                <ul>
+                    <li><a href="shop.php.html#"><i class="fas fa-book-open"></i>マガジン</a></li>
+                    <li><a href="shop.php.html#"><i class="fas fa-shopping-cart"></i>ショップ</a></li>
+                </ul>
+                <ul>
+                    <li><a href="account.php.html"><i class="fas fa-user-circle"></i>マイアカウント</a></li>
+                    <li><a href="../list/list_bookmark.php.html"><i class="fas fa-bookmark"></i>ブックマーク</a></li>
+                    <li><a href="../sub/message.php.html"><i class="fas fa-envelope"></i>メッセージ</a></li>
+                    <li><a href="../main/history.php.html"><i class="fas fa-history"></i>活動履歴</a></li>
+                </ul>
+                <ul>
+
+                    <li><a href="../sub/setting.php.html"><i class="fas fa-cog"></i>設定</a></li>
+                    <li><a href="../sub/insurance.php.html"><i class="fas fa-hospital-alt"></i>自転車保険</a></li>
+                    <li><a href="../login/login.php.html"><i class="fas fa-sign-out-alt"></i>ログアウト</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="gnav_btn"><i class="fas fa-bars"></i></div>
+
+    </div>
+    <div class="sp_header">
+        <div class="logo"><a href="../../index.html"><img src="../../img/logo.svg"></a></div>
+        <div class="gnav_content">
+            <div class="bg"></div>
+            <nav>
+                <div class="close">閉じる<i class="fas fa-arrow-right"></i></div>
+                <ul>
+                    <li><a href="../list/list_root.php.html"><i class="fas fa-biking"></i>ルートを探す</a></li>
+                    <li><a href="../list/list_shop.php.html"><i class="fas fa-store"></i>施設を探す</a></li>
+                </ul>
+                <ul>
+                    <li><a href="../main/create_root.php.html"><i class="fas fa-biking"></i>活動データ作成</a></li>
+                    <li><a href="../main/create_shop.php.html"><i class="fas fa-store"></i>施設データ作成</a></li>
+                    <li><a href="../main/create_community.php.html"><i class="fas fa-users"></i>コミュニティ作成</a></li>
+                    <li><a href="../main/create_event.php.html"><i class="fas fa-calendar-alt"></i>ツアー・イベント作成</a></li>
+                    <li><a href="../main/create_report.php.html"><i class="far fa-file-alt"></i>レポート作成</a></li>
+                </ul>
+                <ul>
+                    <li><a href="account.php.html"><i class="fas fa-user-circle"></i>マイアカウント</a></li>
+                    <li><a href="../list/list_bookmark.php.html"><i class="fas fa-bookmark"></i>ブックマーク</a></li>
+                    <li><a href="../sub/message.php.html"><i class="fas fa-envelope"></i>メッセージ</a></li>
+                    <li><a href="../main/history.php.html"><i class="fas fa-history"></i>活動履歴</a></li>
+                </ul>
+                <ul>
+                    <li><a href="../sub/setting_2.php.html"><i class="fas fa-cog"></i>設定</a></li>
+                    <li><a href="../login/login.php.html"><i class="fas fa-sign-out-alt"></i>ログアウト</a></li>
+                </ul>
+                <div class="accordion">
+                    <div class="title"><i class="fas fa-cog"></i>アコーディオン</div>
+                    <ul class="content">
+                        <li><a href="../main/create_shop.php.html"><i class="fas fa-store"></i>ナビゲーション</a></li>
+                        <li><a href="../main/create_shop.php.html"><i class="fas fa-store"></i>ナビゲーション</a></li>
+                        <li><a href="../main/create_shop.php.html"><i class="fas fa-store"></i>ナビゲーション</a></li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+        <div class="gnav_btn"><i class="fas fa-bars"></i></div>
+    </div>
+</header>
+    <div class="wrap">
+        <main>
+            <div class="content_root">
+                <div class="mainvisual"><img src="../../img/photo/img01.jpg"></div>
+                <div class="title">
+                    <h1>OVE 南青山</h1>
+
+
+                </div>
+                <ul class="content_data">
+                    <li class="bookmark"><i class="fas fa-bookmark"></i></li>
+                    <li class="view"><i class="fas fa-eye"></i>469</li>
+                    <li class="like on"><i class="fas fa-heart"></i>253</li>
+                    <li class="facebook"><i class="fab fa-twitter"></i></li>
+                    <li class="twitter"><i class="fab fa-facebook-f"></i></li>
+                </ul>
+                <div class="profile">
+                    外苑前にあるシマノが運営する体に優しいオーガニックレストランは、店内にラックがあってゆったりしたスペース。自転車関連のかわいいアクセサリや関連雑誌なども置いてあります。<br>
+                    食事は薬膳や東洋医学をベースにとても丁寧につくられていてほっこりします。基本的に動物性食品が控えめで、野菜を中心としたヘルシーなものなので、補給ではなくデトックス目的で来るのが最適。
+                </div>
+                <br>
+                <div class="address">
+                    渋谷区千駄ヶ谷3-1-6 コモンガーデン原宿北参道
+                </div>
+                <br>
+                <div class="open">
+                    月曜日 - 金曜日 11:00 20:30<br>
+                    土曜日 - 日曜日 11:00 19:00
+                </div>
+                <br>
+                <div class="option">
+                    ラック：あり<br>
+                    テラス：あり
+                </div>
+
+                <div class="menu_list">
+                    <h2 class="content_heading_1">メニュー</h2>
+                    <h3>ドリンク</h3>
+                    <table class="content_table">
+                        <tr>
+                            <th>コーヒー
+                                <span>
+                                    その日の天候と陰陽五行に基づいて、 季節野菜の色選びを楽しみながら日々のごはんをお作りしています。<br>
+                                    旬の野菜やきのこから時間をかけて出汁を取り、 コトコト煮込んで作るお味噌汁です。
+                                </span>
+                            </th>
+                            <td>￥400</td>
+                        </tr>
+                        <tr>
+                            <th>カフェオレ</th>
+                            <td>￥400</td>
+                        </tr>
+                        <tr>
+                            <th>アールグレイ</th>
+                            <td>￥400</td>
+                        </tr>
+                        <tr>
+                            <th>アッサム</th>
+                            <td>￥400</td>
+                        </tr>
+                    </table>
+                    <h3>ドリンク</h3>
+                    <table class="content_table">
+                        <tr>
+                            <th>コーヒー
+                                <span>
+                                    その日の天候と陰陽五行に基づいて、 季節野菜の色選びを楽しみながら日々のごはんをお作りしています。<br>
+                                    旬の野菜やきのこから時間をかけて出汁を取り、 コトコト煮込んで作るお味噌汁です。
+                                </span>
+                            </th>
+                            <td>￥400</td>
+                        </tr>
+                        <tr>
+                            <th>カフェオレ</th>
+                            <td>￥400</td>
+                        </tr>
+                        <tr>
+                            <th>アールグレイ</th>
+                            <td>￥400</td>
+                        </tr>
+                        <tr>
+                            <th>アッサム</th>
+                            <td>￥400</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="photo">
+                    <h2 class="content_heading_1">写真</h2>
+                    <ul class="photo_list">
+                        <li><img src="../../img/photo/img01.jpg"></li>
+                        <li><img src="../../img/photo/img02.jpg"></li>
+                        <li><img src="../../img/photo/img03.jpg"></li>
+                        <li><img src="../../img/photo/img04.jpg"></li>
+                        <li><img src="../../img/photo/img01.jpg"></li>
+                        <li><img src="../../img/photo/img02.jpg"></li>
+                        <li><img src="../../img/photo/img03.jpg"></li>
+                        <li><img src="../../img/photo/img04.jpg"></li>
+                    </ul>
+                </div>
+                <div class="comment">
+                    <h2 class="content_heading_1">コメント</h2>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div class="footer_links">
+    <ul>
+        <li><a href="shop.php.html#"><i class="fas fa-question"></i>よくある質問</a></li>
+        <li><a href="shop.php.html#"><i class="fas fa-envelope"></i>お問い合わせ</a></li>
+    </ul>
+</div>
+<footer>
+    <ul class="sns">
+        <li><a href="shop.php.html#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="shop.php.html#"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="shop.php.html#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="shop.php.html#"><i class="fab fa-youtube"></i></a></li>
+    </ul>
+    <ul class="nav">
+        <li><a href="../sub/contact.php.html">お問い合わせ</a></li>
+        <li><a href="../sub/document_1.php.html">利用規約</a></li>
+        <li><a href="../sub/document_2.php.html">プライバシポリシー</a></li>
+        <li><a href="../sub/document_3.php.html">コミュニティーポリシー</a></li>
+        <li><a href="../sub/document_4.php.html">特定商取引に関する法律に基づく表示</a></li>
+    </ul>
+    <div class="Copyright">&#169; 2020 Tenmus</div>
+</footer></body>
+
+</html>
