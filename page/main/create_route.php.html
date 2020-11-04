@@ -40,10 +40,10 @@
         </div>
         <ul class="announce_link">
             <li><a href="../sub/news.php.html"><i class="fas fa-bell"></i><span class="txt">お知らせ</span><span class="notice">99</span></a></li>
-            <li><a href="create_community.php.html#"><i class="fas fa-question"></i><span class="txt">ヘルプ</span></a></li>
+            <li><a href="create_route.php.html#"><i class="fas fa-question"></i><span class="txt">ヘルプ</span></a></li>
         </ul>
         <div class="post_btn"><a href="create_route.php.html">投稿</a></div>
-        <div class="account_link"><a href="create_community.php.html#"><img src="../../img/profile.jpg"></a></div>
+        <div class="account_link"><a href="create_route.php.html#"><img src="../../img/profile.jpg"></a></div>
         <div class="gnav_content">
             <div class="bg"></div>
             <nav>
@@ -56,8 +56,8 @@
                     <li><a href="create_report.php.html"><i class="far fa-file-alt"></i>レポート作成</a></li>
                 </ul>
                 <ul>
-                    <li><a href="create_community.php.html#"><i class="fas fa-book-open"></i>マガジン</a></li>
-                    <li><a href="create_community.php.html#"><i class="fas fa-shopping-cart"></i>ショップ</a></li>
+                    <li><a href="create_route.php.html#"><i class="fas fa-book-open"></i>マガジン</a></li>
+                    <li><a href="create_route.php.html#"><i class="fas fa-shopping-cart"></i>ショップ</a></li>
                 </ul>
                 <ul>
                     <li><a href="../content/account.php.html"><i class="fas fa-user-circle"></i>マイアカウント</a></li>
@@ -118,16 +118,25 @@
     </div>
 </header>    <div class="wrap">
         <main>
-            <h1 class="main_heading">コミュニティ作成</h1>
+            <h1 class="main_heading">活動作成</h1>
             <form>
-                <div class="item">
-                    <label class="need">タイトル</label><input type="text">
+                <!-- <div class="item">
+                    <label class="need">開始日時</label><input type="datetime-local">
                 </div>
                 <div class="item">
-                    <label class="need">施設情報</label><textarea></textarea>
+                    <label class="need">終了日時</label><input type="datetime-local">
                 </div>
                 <div class="item">
                     <label class="need">都道府県 市町村</label><input type="text">
+                </div> -->
+                <div class="item">
+                    <label class="need">コミュニティ</label>
+                    <select>
+                        <option value="">未選択</option>
+                        <option value="">選択1</option>
+                        <option value="">選択2</option>
+                        <option value="">選択3</option>
+                    </select>
                 </div>
                 <div class="item check">
                     <div class="txt">公開設定</div>
@@ -137,41 +146,122 @@
                     <label for="check1_2">非公開</label>
                 </div>
                 <div class="item check">
-                    <div class="txt">コメント設定</div>
+                    <div class="txt">評価設定</div>
                     <input id="check2_1" type="radio" name="radio_2" checked="checked">
                     <label for="check2_1">受け付ける</label>
                     <input id="check2_2" type="radio" name="radio_2">
                     <label for="check2_2">受け付けない</label>
                 </div>
-                <div class="item">
-                    <label>画像</label>
-                    <div class="file_up">
-                        <label>画像を選択<input type="file"></label>
-                        <p>100MG未満のjpg,png画像</p>
-                    </div>
-
+                <div class="item check">
+                    <div class="txt">コメント設定</div>
+                    <input id="check3_1" type="radio" name="radio_3" checked="checked">
+                    <label for="check3_1">受け付ける</label>
+                    <input id="check3_2" type="radio" name="radio_3">
+                    <label for="check3_2">受け付けない</label>
                 </div>
                 <div class="item">
-                    <label>メンバー</label>
+                    <label class="need">タイトル</label><input type="text">
+                </div>
+                <div class="item">
+                    <label class="need">活動内容</label><textarea></textarea>
+                </div>
+                <hr>
+                <h2>評価</h2>
+                <div class="item check">
+                    <div class="txt">難易度</div>
+                    <input id="review1_1" type="radio" name="review_1">
+                    <label for="review1_1">1</label>
+                    <input id="review1_2" type="radio" name="review_1">
+                    <label for="review1_2">2</label>
+                    <input id="review1_3" type="radio" name="review_1">
+                    <label for="review1_3">3</label>
+                    <input id="review1_4" type="radio" name="review_1">
+                    <label for="review1_4">4</label>
+                    <input id="review1_5" type="radio" name="review_1">
+                    <label for="review1_5">5</label>
+                </div>
+                <div class="item check">
+                    <div class="txt">安全性</div>
+                    <input id="review2_1" type="radio" name="review_2">
+                    <label for="review2_1">1</label>
+                    <input id="review2_2" type="radio" name="review_2">
+                    <label for="review2_2">2</label>
+                    <input id="review2_3" type="radio" name="review_2">
+                    <label for="review2_3">3</label>
+                    <input id="review2_4" type="radio" name="review_2">
+                    <label for="review2_4">4</label>
+                    <input id="review2_5" type="radio" name="review_2">
+                    <label for="review2_5">5</label>
+                </div>
+                <div class="item check">
+                    <div class="txt">利便性</div>
+                    <input id="review3_1" type="radio" name="review_3">
+                    <label for="review3_1">1</label>
+                    <input id="review3_2" type="radio" name="review_3">
+                    <label for="review3_2">2</label>
+                    <input id="review3_3" type="radio" name="review_3">
+                    <label for="review3_3">3</label>
+                    <input id="review3_4" type="radio" name="review_3">
+                    <label for="review3_4">4</label>
+                    <input id="review3_5" type="radio" name="review_3">
+                    <label for="review3_5">5</label>
+                </div>
+                <div class="item check">
+                    <div class="txt">絶景</div>
+                    <input id="review4_1" type="radio" name="review_4">
+                    <label for="review4_1">1</label>
+                    <input id="review4_2" type="radio" name="review_4">
+                    <label for="review4_2">2</label>
+                    <input id="review4_3" type="radio" name="review_4">
+                    <label for="review4_3">3</label>
+                    <input id="review4_4" type="radio" name="review_4">
+                    <label for="review4_4">4</label>
+                    <input id="review4_5" type="radio" name="review_4">
+                    <label for="review4_5">5</label>
+                </div>
+                <div class="item check">
+                    <div class="txt">絶景</div>
+                    <input id="review5_1" type="radio" name="review_5">
+                    <label for="review5_1">1</label>
+                    <input id="review5_2" type="radio" name="review_5">
+                    <label for="review5_2">2</label>
+                    <input id="review5_3" type="radio" name="review_5">
+                    <label for="review5_3">3</label>
+                    <input id="review5_4" type="radio" name="review_5">
+                    <label for="review5_4">4</label>
+                    <input id="review5_5" type="radio" name="review_5">
+                    <label for="review5_5">5</label>
+                </div>
+                <hr>
+                <div class="item">
+                    <label>写真</label>
+                </div>
+                <div class="item">
+                    <label>動画</label><input type="text" placeholder="https://www.youtube.com/">
+                </div>
+                <div class="item">
+                    <label>GPXファイル</label>
+                    <div class="file_up">
+                        <label>GPXファイルを選択<input type="file"></label>
+                    </div>
                 </div>
                 <hr>
                 <button class="main_btn">変更内容を保存</button>
             </form>
-
         </main>
     </div>
     <div class="footer_links">
     <ul>
-        <li><a href="create_community.php.html#"><i class="fas fa-question"></i>よくある質問</a></li>
-        <li><a href="create_community.php.html#"><i class="fas fa-envelope"></i>お問い合わせ</a></li>
+        <li><a href="create_route.php.html#"><i class="fas fa-question"></i>よくある質問</a></li>
+        <li><a href="create_route.php.html#"><i class="fas fa-envelope"></i>お問い合わせ</a></li>
     </ul>
 </div>
 <footer>
     <ul class="sns">
-        <li><a href="create_community.php.html#"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="create_community.php.html#"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="create_community.php.html#"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="create_community.php.html#"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="create_route.php.html#"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="create_route.php.html#"><i class="fab fa-twitter"></i></a></li>
+        <li><a href="create_route.php.html#"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="create_route.php.html#"><i class="fab fa-youtube"></i></a></li>
     </ul>
     <ul class="nav">
         <li><a href="../sub/contact.php.html">お問い合わせ</a></li>
