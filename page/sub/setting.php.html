@@ -1,123 +1,303 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"
+    />
 
-<head>
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/style-1603637922.css" />
+    <script src="../../js/jquery-3.5.1.min.js"></script>
+    <script src="../../js/style.js"></script>
+        <script src="../../js/sortJson.js"></script>
+        <script src="../../js/createAreaSearchCondition.js"></script>
+        <script type="text/javascript">
+          window.addEventListener("DOMContentLoaded", function (e) {
+            selectAreaGet();
+            areaChange(search);
 
+            document.getElementById("sortKey").addEventListener("input", search);
+            document.getElementById("keyword").addEventListener("blur", search);
+            document.getElementById("areaSelect").addEventListener("input", search);
+          });
 
+          function search(e) {
+            // TODO : 実装 これはダミーです。
+            var dummyElement = document.createElement("div");
+            dummyElement.innerText = "一覧表示";
+            document.getElementById("searchDummy").appendChild(dummyElement);
+          }
+        </script>
 
-<link rel="stylesheet" href="../../css/style-1603637922.css">
-<script src="../../js/jquery-3.5.1.min.js"></script>
-<script src="../../js/style.js"></script>
+    <title>Tenmusu みんなでつくる、サイクルルート</title>
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      href="../../img/favicons/apple-touch-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../img/favicons/icon-192x192.png"
+    />
+  </head>
 
-
-<title>Tenmusu みんなでつくる、サイクルルート</title>
-<link rel="apple-touch-icon" type="image/png" href="../../img/favicons/apple-touch-icon-180x180.png">
-<link rel="icon" type="image/png" href="../../img/favicons/icon-192x192.png"></head>
-
-<body>
+  <body>
     <header class="login_header_pc">
-    <div class="pc_header">
-        <div class="logo"><a href="../../index.html"><img src="../../img/logo.svg"></a></div>
+      <div class="pc_header">
+        <div class="logo">
+          <a href="../../index.html"><img src="../../img/logo.svg" /></a>
+        </div>
         <ul class="content_link">
-            <li><a href="../list/list_route.php.html"><i class="fas fa-biking"></i>ルートを探す</a></li>
-            <li><a href="../list/list_shop.php.html"><i class="fas fa-store"></i>施設を探す</a></li>
+          <li>
+            <a href="../list/list_route.php.html"
+              ><i class="fas fa-biking"></i>ルートを探す</a
+            >
+          </li>
+          <li>
+            <a href="../list/list_shop.php.html"
+              ><i class="fas fa-store"></i>スポットを探す</a
+            >
+          </li>
         </ul>
         <div class="search">
-            <form>
-                <select>
-                    <option value="">コース</option>
-                    <option value="">施設</option>
-                    <option value="">ショップ</option>
-                </select>
-                <button><i class="fas fa-search"></i></button>
-                <input type="text" placeholder="地域 施設　など">
-            </form>
+          <form>
+            <select>
+              <option value="">ルート</option>
+              <option value="">スポット</option>
+            </select>
+            <button><i class="fas fa-search"></i></button>
+            <input type="text" placeholder="エリア 都道府県 など" />
+          </form>
         </div>
         <ul class="announce_link">
-            <li><a href="news.php.html"><i class="fas fa-bell"></i><span class="txt">お知らせ</span><span class="notice">99</span></a></li>
-            <li><a href="setting.php.html#"><i class="fas fa-question"></i><span class="txt">ヘルプ</span></a></li>
+          <li>
+            <a href="news.php.html"
+              ><i class="fas fa-bell"></i><span class="txt">お知らせ</span
+              ><span class="notice">99</span></a
+            >
+          </li>
+          <li>
+            <a href="setting.php.html#"
+              ><i class="fas fa-question"></i><span class="txt">ヘルプ</span></a
+            >
+          </li>
         </ul>
-        <div class="post_btn"><a href="../main/create_route.php.html">投稿</a></div>
-        <div class="account_link"><a href="setting.php.html#"><img src="../../img/profile.jpg"></a></div>
+        <div class="post_btn">
+          <a href="../main/create_route.php.html">ルートデータ作成</a>
+        </div>
+        <div class="post_btn">
+          <a href="../main/create_shop.php.html">スポットデータ作成</a>
+        </div>
+        <div class="account_link">
+          <a href="setting.php.html#"><img src="../../img/profile.jpg" /></a>
+        </div>
         <div class="gnav_content">
-            <div class="bg"></div>
-            <nav>
-                <div class="close">閉じる<i class="fas fa-arrow-right"></i></div>
-                <ul>
-                    <li><a href="../main/create_route.php.html"><i class="fas fa-biking"></i>活動データ作成</a></li>
-                    <li><a href="../main/create_shop.php.html"><i class="fas fa-store"></i>施設データ作成</a></li>
-                    <li><a href="../main/create_community.php.html"><i class="fas fa-users"></i>コミュニティ作成</a></li>
-                    <li><a href="../main/create_event.php.html"><i class="fas fa-calendar-alt"></i>ツアー・イベント作成</a></li>
-                    <li><a href="../main/create_report.php.html"><i class="far fa-file-alt"></i>レポート作成</a></li>
-                </ul>
-                <ul>
-                    <li><a href="setting.php.html#"><i class="fas fa-book-open"></i>マガジン</a></li>
-                    <li><a href="setting.php.html#"><i class="fas fa-shopping-cart"></i>ショップ</a></li>
-                </ul>
-                <ul>
-                    <li><a href="../content/account.php.html"><i class="fas fa-user-circle"></i>マイアカウント</a></li>
-                    <li><a href="../list/list_bookmark.php.html"><i class="fas fa-bookmark"></i>ブックマーク</a></li>
-                    <li><a href="message.php.html"><i class="fas fa-envelope"></i>メッセージ</a></li>
-                    <li><a href="../main/history.php.html"><i class="fas fa-history"></i>活動履歴</a></li>
-                </ul>
-                <ul>
-
-                    <li><a href="setting.php.html"><i class="fas fa-cog"></i>設定</a></li>
-                    <li><a href="insurance.php.html"><i class="fas fa-hospital-alt"></i>自転車保険</a></li>
-                    <li><a href="../login/login.php.html"><i class="fas fa-sign-out-alt"></i>ログアウト</a></li>
-                </ul>
-            </nav>
+          <div class="bg"></div>
+          <nav>
+            <div class="close">閉じる<i class="fas fa-arrow-right"></i></div>
+            <ul>
+              <li>
+                <a href="../main/create_route.php.html"
+                  ><i class="fas fa-biking"></i>ルートデータ作成</a
+                >
+              </li>
+              <li>
+                <a href="../main/create_shop.php.html"
+                  ><i class="fas fa-store"></i>スポットデータ作成</a
+                >
+              </li>
+              <li>
+                <a href="../main/create_community.php.html"
+                  ><i class="fas fa-users"></i>コミュニティ作成</a
+                >
+              </li>
+              <li>
+                <a href="../main/create_event.php.html"
+                  ><i class="fas fa-calendar-alt"></i>イベント作成</a
+                >
+              </li>
+              <li>
+                <a href="../main/create_tour.php.html"
+                  ><i class="fas fa-calendar-alt"></i>ツアー作成＊</a>
+              </li>
+              <li>
+                <a href="../main/create_report.php.html"
+                  ><i class="far fa-file-alt"></i>レポート作成＊</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="setting.php.html#"
+                  ><i class="fas fa-book-open"></i>マガジン</a
+                >
+              </li>
+              <li>
+                <a href="setting.php.html#"
+                  ><i class="fas fa-shopping-cart"></i>ショップ</a
+                >
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="../content/account.php.html"
+                  ><i class="fas fa-user-circle"></i>マイアカウント</a
+                >
+              </li>
+              <li>
+                <a href="../list/list_bookmark.php.html"
+                  ><i class="fas fa-bookmark"></i>ブックマーク</a
+                >
+              </li>
+              <li>
+                <a href="message.php.html"
+                  ><i class="fas fa-envelope"></i>メッセージ</a
+                >
+              </li>
+              <li>
+                <a href="../main/history.php.html"
+                  ><i class="fas fa-history"></i>活動履歴</a
+                >
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="setting.php.html"><i class="fas fa-cog"></i>設定</a>
+              </li>
+              <li>
+                <a href="insurance.php.html"
+                  ><i class="fas fa-hospital-alt"></i>自転車保険</a
+                >
+              </li>
+              <li>
+                <a href="../login/login.php.html"
+                  ><i class="fas fa-sign-out-alt"></i>ログアウト</a
+                >
+              </li>
+            </ul>
+          </nav>
         </div>
         <div class="gnav_btn"><i class="fas fa-bars"></i></div>
-
-    </div>
-    <div class="sp_header">
-        <div class="logo"><a href="../../index.html"><img src="../../img/logo.svg"></a></div>
+      </div>
+      <div class="sp_header">
+        <div class="logo">
+          <a href="../../index.html"><img src="../../img/logo.svg" /></a>
+        </div>
         <div class="gnav_content">
-            <div class="bg"></div>
-            <nav>
-                <div class="close">閉じる<i class="fas fa-arrow-right"></i></div>
-                <ul>
-                    <li><a href="../list/list_route.php.html"><i class="fas fa-biking"></i>ルートを探す</a></li>
-                    <li><a href="../list/list_shop.php.html"><i class="fas fa-store"></i>施設を探す</a></li>
-                </ul>
-                <ul>
-                    <li><a href="../main/create_route.php.html"><i class="fas fa-biking"></i>活動データ作成</a></li>
-                    <li><a href="../main/create_shop.php.html"><i class="fas fa-store"></i>施設データ作成</a></li>
-                    <li><a href="../main/create_community.php.html"><i class="fas fa-users"></i>コミュニティ作成</a></li>
-                    <li><a href="../main/create_event.php.html"><i class="fas fa-calendar-alt"></i>ツアー・イベント作成</a></li>
-                    <li><a href="../main/create_report.php.html"><i class="far fa-file-alt"></i>レポート作成</a></li>
-                </ul>
-                <ul>
-                    <li><a href="../content/account.php.html"><i class="fas fa-user-circle"></i>マイアカウント</a></li>
-                    <li><a href="../list/list_bookmark.php.html"><i class="fas fa-bookmark"></i>ブックマーク</a></li>
-                    <li><a href="message.php.html"><i class="fas fa-envelope"></i>メッセージ</a></li>
-                    <li><a href="../main/history.php.html"><i class="fas fa-history"></i>活動履歴</a></li>
-                </ul>
-                <ul>
-                    <li><a href="setting_2.php.html"><i class="fas fa-cog"></i>設定</a></li>
-                    <li><a href="../login/login.php.html"><i class="fas fa-sign-out-alt"></i>ログアウト</a></li>
-                </ul>
-                <div class="accordion">
-                    <div class="title"><i class="fas fa-cog"></i>アコーディオン</div>
-                    <ul class="content">
-                        <li><a href="../main/create_shop.php.html"><i class="fas fa-store"></i>ナビゲーション</a></li>
-                        <li><a href="../main/create_shop.php.html"><i class="fas fa-store"></i>ナビゲーション</a></li>
-                        <li><a href="../main/create_shop.php.html"><i class="fas fa-store"></i>ナビゲーション</a></li>
-                    </ul>
-                </div>
-
-            </nav>
+          <div class="bg"></div>
+          <nav>
+            <div class="close">閉じる<i class="fas fa-arrow-right"></i></div>
+            <ul>
+              <li>
+                <a href="../list/list_route.php.html"
+                  ><i class="fas fa-biking"></i>ルートを探す</a
+                >
+              </li>
+              <li>
+                <a href="../list/list_shop.php.html"
+                  ><i class="fas fa-store"></i>スポットを探す</a
+                >
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="../main/create_route.php.html"
+                  ><i class="fas fa-biking"></i>ルートデータ作成</a
+                >
+              </li>
+              <li>
+                <a href="../main/create_shop.php.html"
+                  ><i class="fas fa-store"></i>スポットデータ作成</a
+                >
+              </li>
+              <li>
+                <a href="../main/create_community.php.html"
+                  ><i class="fas fa-users"></i>コミュニティ作成</a
+                >
+              </li>
+              <li>
+                <a href="../main/create_event.php.html"
+                  ><i class="fas fa-calendar-alt"></i>イベント作成</a
+                >
+              </li>
+              <li>
+                <a href="../main/create_tour.php.html"
+                  ><i class="fas fa-calendar-alt"></i>ツアー作成＊</a>
+              </li>
+              <li>
+                <a href="../main/create_report.php.html"
+                  ><i class="far fa-file-alt"></i>レポート作成＊</a>
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="../content/account.php.html"
+                  ><i class="fas fa-user-circle"></i>マイアカウント</a
+                >
+              </li>
+              <li>
+                <a href="../list/list_bookmark.php.html"
+                  ><i class="fas fa-bookmark"></i>ブックマーク</a
+                >
+              </li>
+              <li>
+                <a href="message.php.html"
+                  ><i class="fas fa-envelope"></i>メッセージ</a
+                >
+              </li>
+              <li>
+                <a href="../main/history.php.html"
+                  ><i class="fas fa-history"></i>活動履歴</a
+                >
+              </li>
+            </ul>
+            <ul>
+              <li>
+                <a href="setting_2.php.html"><i class="fas fa-cog"></i>設定</a>
+              </li>
+              <li>
+                <a href="../login/login.php.html"
+                  ><i class="fas fa-sign-out-alt"></i>ログアウト</a
+                >
+              </li>
+            </ul>
+            <div class="accordion">
+              <div class="title"><i class="fas fa-cog"></i>アコーディオン</div>
+              <ul class="content">
+                <li>
+                  <a href="../main/create_shop.php.html"
+                    ><i class="fas fa-store"></i>ナビゲーション</a
+                  >
+                </li>
+                <li>
+                  <a href="../main/create_shop.php.html"
+                    ><i class="fas fa-store"></i>ナビゲーション</a
+                  >
+                </li>
+                <li>
+                  <a href="../main/create_shop.php.html"
+                    ><i class="fas fa-store"></i>ナビゲーション</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
         <div class="gnav_btn"><i class="fas fa-bars"></i></div>
-    </div>
-</header>    <div class="wrap">
-        <!-- <div id="sidebar">
+      </div>
+    </header>
+    <div class="wrap">
+      <!-- <div id="sidebar">
     <nav>
         <ul>
             <li><a href="/page/sub/notice.php">お知らせ</a></li>
@@ -141,342 +321,303 @@
             <li><a href="/page/sub/contact.php">お問い合わせ</a></li>
         </ul>
     </nav>
-</div> -->        <main>
-            <h1 class="main_heading">通知設定</h1>
-            <form>
-                <div class="item check">
-                    <div class="txt">新しいコメント</div>
-                    <input id="check1_1" type="checkbox" checked="checked">
-                    <label for="check1_1">メール通知</label>
-                    <input id="check1_2" type="checkbox">
-                    <label for="check1_2">プッシュ通知</label>
-                </div>
-                <div class="item check">
-                    <div class="txt">フォローのコミュニティ作成</div>
-                    <input id="check2_1" type="checkbox">
-                    <label for="check2_1">プッシュ通知</label>
-                </div>
-                <div class="item check">
-                    <div class="txt">新しいメッセージ</div>
-                    <input id="check3_1" type="checkbox" checked="checked">
-                    <label for="check3_1">メール通知</label>
-                    <input id="check3_2" type="checkbox">
-                    <label for="check3_2">プッシュ通知</label>
-                </div>
-                <div class="item check">
-                    <div class="txt">コミュニティの新しい返信</div>
-                    <input id="check4_1" type="checkbox" checked="checked">
-                    <label for="check4_1">メール通知</label>
-                    <input id="check4_2" type="checkbox">
-                    <label for="check4_2">プッシュ通知</label>
-                </div>
-                <div class="item check">
-                    <div class="txt">新しいフォロー</div>
-                    <input id="check5_1" type="checkbox" checked="checked">
-                    <label for="check5_1">プッシュ通知</label>
-                </div>
+</div> -->
+      <main>
+        <h1 class="main_heading">通知設定</h1>
+        <form>
+          <div class="item check">
+            <div class="txt">新しいコメント</div>
+            <input id="check1_1" type="checkbox" checked="checked" />
+            <label for="check1_1">メール通知</label>
+            <input id="check1_2" type="checkbox" />
+            <label for="check1_2">プッシュ通知</label>
+          </div>
+          <div class="item check">
+            <div class="txt">フォローのコミュニティ作成</div>
+            <input id="check3_1" type="checkbox" checked="checked" />
+            <label for="check3_1">メール通知</label>
+            <input id="check3_2" type="checkbox" />
+            <label for="check3_2">プッシュ通知</label>
+          </div>
+          <div class="item check">
+            <div class="txt">新しいメッセージ</div>
+            <input id="check3_1" type="checkbox" checked="checked" />
+            <label for="check3_1">メール通知</label>
+            <input id="check3_2" type="checkbox" />
+            <label for="check3_2">プッシュ通知</label>
+          </div>
+          <div class="item check">
+            <div class="txt">コミュニティの新しい返信</div>
+            <input id="check4_1" type="checkbox" checked="checked" />
+            <label for="check4_1">メール通知</label>
+            <input id="check4_2" type="checkbox" />
+            <label for="check4_2">プッシュ通知</label>
+          </div>
+          <div class="item check">
+            <div class="txt">新しいフォロー</div>
+            <input id="check3_1" type="checkbox" checked="checked" />
+            <label for="check3_1">メール通知</label>
+            <input id="check3_2" type="checkbox" />
+            <label for="check3_2">プッシュ通知</label>
+          </div>
 
-                <div class="item check">
-                    <div class="txt">いいね！のお知らせ</div>
-                    <input id="check6_1" type="checkbox" checked="checked">
-                    <label for="check6_1">プッシュ通知</label>
-                </div>
-                <hr>
-                <div class="item check">
-                    <div class="txt">自転車保険</div>
-                    <input id="check7_1" type="radio" name="radio_1" checked="checked">
-                    <label for="check7_1">受け取る</label>
-                    <input id="check7_2" type="radio" name="radio_1">
-                    <label for="check7_2">受け取らない</label>
-                </div>
-                <div class="item check">
-                    <div class="txt">ストア情報</div>
-                    <input id="check8_1" type="radio" name="radio_2" checked="checked">
-                    <label for="check8_1">受け取る</label>
-                    <input id="check8_2" type="radio" name="radio_2">
-                    <label for="check8_2">受け取らない</label>
-                </div>
-                <div class="item check">
-                    <div class="txt">マガジン情報</div>
-                    <input id="check9_1" type="radio" name="radio_3" checked="checked">
-                    <label for="check9_1">受け取る</label>
-                    <input id="check9_2" type="radio" name="radio_3">
-                    <label for="check9_2">受け取らない</label>
-                </div>
-                <div class="item check">
-                    <div class="txt">プロモーション</div>
-                    <input id="check10_1" type="radio" name="radio_4" checked="checked">
-                    <label for="check10_1">受け取る</label>
-                    <input id="check10_2" type="radio" name="radio_4">
-                    <label for="check10_2">受け取らない</label>
-                </div>
-                <hr>
-                <button class="main_btn">変更内容を保存</button>
-            </form>
-            <h1 class="main_heading">プロフィール編集</h1>
-            <form>
-                <div class="item">
-                    <label>プロフィール画像</label>
-                    <div class="icon_img"><img src="../../img/profile.jpg"></div>
-                    <div class="item file_up">
-                        <label>画像を選択<input type="file"></label>
-                        <p>100MG未満のjpg,png画像</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <label>背景画像</label>
-                    <img src="../../img/bg_img.jpeg">
-                    <div class="item file_up">
-                        <label>画像を選択<input type="file"></label>
-                        <p>100MG未満のjpg,png画像</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <label class="need">あだ名</label><input type="text">
-                </div>
-                <div class="item">
-                    <label>自己紹介</label><textarea></textarea>
-                </div>
-                <div class="item">
-                    <label>生まれ年</label>
-                    <select>
-                        <option value="">未選択</option>
-                        <option value="1960">1960</option>
-                        <option value="1961">1961</option>
-                        <option value="1962">1962</option>
-                        <option value="1963">1963</option>
-                        <option value="1964">1964</option>
-                        <option value="1965">1965</option>
-                        <option value="1966">1966</option>
-                        <option value="1967">1967</option>
-                        <option value="1968">1968</option>
-                        <option value="1969">1969</option>
-                        <option value="1970">1970</option>
-                        <option value="1971">1971</option>
-                        <option value="1972">1972</option>
-                        <option value="1973">1973</option>
-                        <option value="1974">1974</option>
-                        <option value="1975">1975</option>
-                        <option value="1976">1976</option>
-                        <option value="1977">1977</option>
-                        <option value="1978">1978</option>
-                        <option value="1979">1979</option>
-                        <option value="1980">1980</option>
-                        <option value="1981">1981</option>
-                        <option value="1982">1982</option>
-                        <option value="1983">1983</option>
-                        <option value="1984">1984</option>
-                        <option value="1985">1985</option>
-                        <option value="1986">1986</option>
-                        <option value="1987">1987</option>
-                        <option value="1988">1988</option>
-                        <option value="1989">1989</option>
-                        <option value="1990">1990</option>
-                        <option value="1991">1991</option>
-                        <option value="1992">1992</option>
-                        <option value="1993">1993</option>
-                        <option value="1994">1994</option>
-                        <option value="1995">1995</option>
-                        <option value="1996">1996</option>
-                        <option value="1997">1997</option>
-                        <option value="1998">1998</option>
-                        <option value="1999">1999</option>
-                        <option value="2000">2000</option>
-                        <option value="2001">2001</option>
-                        <option value="2002">2002</option>
-                        <option value="2003">2003</option>
-                        <option value="2004">2004</option>
-                        <option value="2005">2005</option>
-                        <option value="2006">2006</option>
-                        <option value="2007">2007</option>
-                        <option value="2008">2008</option>
-                        <option value="2009">2009</option>
-                        <option value="2010">2010</option>
-                    </select>
+          <div class="item check">
+            <div class="txt">いいね！のお知らせ</div>
+            <input id="check3_1" type="checkbox" checked="checked" />
+            <label for="check3_1">メール通知</label>
+            <input id="check3_2" type="checkbox" />
+            <label for="check3_2">プッシュ通知</label>
+          </div>
+          <hr />
+          <div class="item check">
+            <div class="txt">自転車保険</div>
+            <input
+              id="check7_1"
+              type="radio"
+              name="radio_1"
+              checked="checked"
+            />
+            <label for="check7_1">受け取る</label>
+            <input id="check7_2" type="radio" name="radio_1" />
+            <label for="check7_2">受け取らない</label>
+          </div>
+          <div class="item check">
+            <div class="txt">ショップ情報</div>
+            <input
+              id="check8_1"
+              type="radio"
+              name="radio_2"
+              checked="checked"
+            />
+            <label for="check8_1">受け取る</label>
+            <input id="check8_2" type="radio" name="radio_2" />
+            <label for="check8_2">受け取らない</label>
+          </div>
+          <div class="item check">
+            <div class="txt">マガジン情報</div>
+            <input
+              id="check9_1"
+              type="radio"
+              name="radio_3"
+              checked="checked"
+            />
+            <label for="check9_1">受け取る</label>
+            <input id="check9_2" type="radio" name="radio_3" />
+            <label for="check9_2">受け取らない</label>
+          </div>
+          <div class="item check">
+            <div class="txt">プロモーション</div>
+            <input
+              id="check10_1"
+              type="radio"
+              name="radio_4"
+              checked="checked"
+            />
+            <label for="check10_1">受け取る</label>
+            <input id="check10_2" type="radio" name="radio_4" />
+            <label for="check10_2">受け取らない</label>
+          </div>
+          <hr />
+          <button class="main_btn">変更内容を保存</button>
+        </form>
+        <h1 class="main_heading">プロフィール編集</h1>
+        <form>
+          <div class="item">
+            <label>プロフィール画像</label>
+            <div class="icon_img"><img src="../../img/profile.jpg" /></div>
+            <div class="item file_up">
+              <label>画像を選択<input type="file" /></label>
+              <p>100MG未満のjpg,png画像</p>
+            </div>
+          </div>
+          <div class="item">
+            <label>背景画像</label>
+            <img src="../../img/bg_img.jpeg" />
+            <div class="item file_up">
+              <label>画像を選択<input type="file" /></label>
+              <p>100MG未満のjpg,png画像</p>
+            </div>
+          </div>
+          <div class="item">
+            <label class="need">ニックネーム</label><input type="text" />
+          </div>
+          <div class="item"><label>自己紹介</label><textarea></textarea></div>
+          <div class="item">
+            <label>生まれ年</label>
+            <select>
+              <option value="">未選択</option>
+              <option value="1960">1960</option>
+              <option value="1961">1961</option>
+              <option value="1962">1962</option>
+              <option value="1963">1963</option>
+              <option value="1964">1964</option>
+              <option value="1965">1965</option>
+              <option value="1966">1966</option>
+              <option value="1967">1967</option>
+              <option value="1968">1968</option>
+              <option value="1969">1969</option>
+              <option value="1970">1970</option>
+              <option value="1971">1971</option>
+              <option value="1972">1972</option>
+              <option value="1973">1973</option>
+              <option value="1974">1974</option>
+              <option value="1975">1975</option>
+              <option value="1976">1976</option>
+              <option value="1977">1977</option>
+              <option value="1978">1978</option>
+              <option value="1979">1979</option>
+              <option value="1980">1980</option>
+              <option value="1981">1981</option>
+              <option value="1982">1982</option>
+              <option value="1983">1983</option>
+              <option value="1984">1984</option>
+              <option value="1985">1985</option>
+              <option value="1986">1986</option>
+              <option value="1987">1987</option>
+              <option value="1988">1988</option>
+              <option value="1989">1989</option>
+              <option value="1990">1990</option>
+              <option value="1991">1991</option>
+              <option value="1992">1992</option>
+              <option value="1993">1993</option>
+              <option value="1994">1994</option>
+              <option value="1995">1995</option>
+              <option value="1996">1996</option>
+              <option value="1997">1997</option>
+              <option value="1998">1998</option>
+              <option value="1999">1999</option>
+              <option value="2000">2000</option>
+              <option value="2001">2001</option>
+              <option value="2002">2002</option>
+              <option value="2003">2003</option>
+              <option value="2004">2004</option>
+              <option value="2005">2005</option>
+              <option value="2006">2006</option>
+              <option value="2007">2007</option>
+              <option value="2008">2008</option>
+              <option value="2009">2009</option>
+              <option value="2010">2010</option>
+            </select>
+            <div class="item check">
+              <input id="check1_1" type="checkbox" />
+              <label for="check1_1">公開</label>
+            </div>
+          </div>
+          <div class="item">
                     <div class="item check">
-                        <input id="check1_1" type="checkbox">
-                        <label for="check1_1">公開</label>
+                      <label class="need">活動エリア</label>
+                      <select id="areaSelect" name="area" onchange="areaChange(search);">
+                        <option value="">エリアを選択してください</option>
+                      </select>
                     </div>
-                </div>
-                <div class="item">
-                    <label class="need">活動エリア</label>
-                    <select>
-                        <option value="">未選択</option>
-                        <option value="北海道">北海道</option>
-                        <option value="青森県">青森県</option>
-                        <option value="岩手県">岩手県</option>
-                        <option value="宮城県">宮城県</option>
-                        <option value="秋田県">秋田県</option>
-                        <option value="山形県">山形県</option>
-                        <option value="福島県">福島県</option>
-                        <option value="茨城県">茨城県</option>
-                        <option value="栃木県">栃木県</option>
-                        <option value="群馬県">群馬県</option>
-                        <option value="埼玉県">埼玉県</option>
-                        <option value="千葉県">千葉県</option>
-                        <option value="東京都" selected>東京都</option>
-                        <option value="神奈川県">神奈川県</option>
-                        <option value="新潟県">新潟県</option>
-                        <option value="富山県">富山県</option>
-                        <option value="石川県">石川県</option>
-                        <option value="福井県">福井県</option>
-                        <option value="山梨県">山梨県</option>
-                        <option value="長野県">長野県</option>
-                        <option value="岐阜県">岐阜県</option>
-                        <option value="静岡県">静岡県</option>
-                        <option value="愛知県">愛知県</option>
-                        <option value="三重県">三重県</option>
-                        <option value="滋賀県">滋賀県</option>
-                        <option value="京都府">京都府</option>
-                        <option value="大阪府">大阪府</option>
-                        <option value="兵庫県">兵庫県</option>
-                        <option value="奈良県">奈良県</option>
-                        <option value="和歌山県">和歌山県</option>
-                        <option value="鳥取県">鳥取県</option>
-                        <option value="島根県">島根県</option>
-                        <option value="岡山県">岡山県</option>
-                        <option value="広島県">広島県</option>
-                        <option value="山口県">山口県</option>
-                        <option value="徳島県">徳島県</option>
-                        <option value="香川県">香川県</option>
-                        <option value="愛媛県">愛媛県</option>
-                        <option value="高知県">高知県</option>
-                        <option value="福岡県">福岡県</option>
-                        <option value="佐賀県">佐賀県</option>
-                        <option value="長崎県">長崎県</option>
-                        <option value="熊本県">熊本県</option>
-                        <option value="大分県">大分県</option>
-                        <option value="宮崎県">宮崎県</option>
-                        <option value="鹿児島県">鹿児島県</option>
-                        <option value="沖縄県">沖縄県</option>
-                    </select>
                     <div class="item check">
-                        <input id="check2_1" type="checkbox">
-                        <label for="check2_1">公開</label>
+                      <label class="need">都道府県</label>
+                      <div id="areaBox"></div>
                     </div>
-                </div>
-                <div class="item">
-                    <label>お住いの地域</label>
-                    <select>
-                        <option value="">未選択</option>
-                        <option value="北海道">北海道</option>
-                        <option value="青森県">青森県</option>
-                        <option value="岩手県">岩手県</option>
-                        <option value="宮城県">宮城県</option>
-                        <option value="秋田県">秋田県</option>
-                        <option value="山形県">山形県</option>
-                        <option value="福島県">福島県</option>
-                        <option value="茨城県">茨城県</option>
-                        <option value="栃木県">栃木県</option>
-                        <option value="群馬県">群馬県</option>
-                        <option value="埼玉県">埼玉県</option>
-                        <option value="千葉県">千葉県</option>
-                        <option value="東京都" selected>東京都</option>
-                        <option value="神奈川県">神奈川県</option>
-                        <option value="新潟県">新潟県</option>
-                        <option value="富山県">富山県</option>
-                        <option value="石川県">石川県</option>
-                        <option value="福井県">福井県</option>
-                        <option value="山梨県">山梨県</option>
-                        <option value="長野県">長野県</option>
-                        <option value="岐阜県">岐阜県</option>
-                        <option value="静岡県">静岡県</option>
-                        <option value="愛知県">愛知県</option>
-                        <option value="三重県">三重県</option>
-                        <option value="滋賀県">滋賀県</option>
-                        <option value="京都府">京都府</option>
-                        <option value="大阪府">大阪府</option>
-                        <option value="兵庫県">兵庫県</option>
-                        <option value="奈良県">奈良県</option>
-                        <option value="和歌山県">和歌山県</option>
-                        <option value="鳥取県">鳥取県</option>
-                        <option value="島根県">島根県</option>
-                        <option value="岡山県">岡山県</option>
-                        <option value="広島県">広島県</option>
-                        <option value="山口県">山口県</option>
-                        <option value="徳島県">徳島県</option>
-                        <option value="香川県">香川県</option>
-                        <option value="愛媛県">愛媛県</option>
-                        <option value="高知県">高知県</option>
-                        <option value="福岡県">福岡県</option>
-                        <option value="佐賀県">佐賀県</option>
-                        <option value="長崎県">長崎県</option>
-                        <option value="熊本県">熊本県</option>
-                        <option value="大分県">大分県</option>
-                        <option value="宮崎県">宮崎県</option>
-                        <option value="鹿児島県">鹿児島県</option>
-                        <option value="沖縄県">沖縄県</option>
-                    </select>
-
-                </div>
-                <div class="item">
-                    <label>経験年数</label>
-                    <select>
-                        <option value="">未選択</option>
-                        <option value="">1年未満</option>
-                        <option value="">1〜5年</option>
-                        <option value="">5〜10年</option>
-                        <option value="">10〜15年</option>
-                        <option value="">15〜20年</option>
-                        <option value="">20〜25年</option>
-                        <option value="">25〜30年</option>
-                        <option value="">30〜35年</option>
-                        <option value="">35〜40年</option>
-                        <option value="">35〜40年</option>
-                    </select>
-
-                </div>
-                <div class="item">
-                    <label>車種</label>
-                    <select>
-                        <option value="">未選択</option>
-                        <option value="">ロード</option>
-                        <option value="">オフロード</option>
-                        <option value="">ピスト</option>
-                        <option value="">ミニベロ</option>
-                    </select>
-
-                </div>
-                <hr>
-                <button class="main_btn">変更内容を保存</button>
-            </form>
-            <h1 class="main_heading">パスワード変更</h1>
-            <form>
-                <div class="item">
-                    <label class="need">現在のパスワード</label><input type="text">
-                </div>
-                <div class="item">
-                    <label class="need">新しいパスワード</label><input type="text" placeholder="8文字以上">
-                </div>
-                <hr>
-                <button class="main_btn">パスワードを変更する</button>
-                <p><a href="setting.php.html#">パスワードを忘れた方はこちら</a></p>
-            </form>
-
-        </main>
-
+            <div class="item check">
+              <input id="check2_1" type="checkbox" />
+              <label for="check2_1">公開</label>
+            </div>
+          </div>
+          <div class="item">
+                    <div class="item check">
+                      <label class="need">お住いの地域</label>
+                      <select id="areaSelect2" name="area2" onchange="areaChange(search);">
+                        <option value="">エリアを選択してください</option>
+                      </select>
+                    </div>
+                    <div class="item check">
+                      <label class="need">都道府県</label>
+                      <div id="areaBox2"></div>
+                    </div>
+            <div class="item check">
+              <input id="check2_2" type="checkbox" />
+              <label for="check2_2">公開</label>
+            </div>
+          </div>
+          <div class="item">
+            <label>サイクル歴</label>
+            <select>
+              <option value="">未選択</option>
+              <option value="">1年未満</option>
+              <option value="">1〜5年</option>
+              <option value="">5〜10年</option>
+              <option value="">10〜15年</option>
+              <option value="">15〜20年</option>
+              <option value="">20〜25年</option>
+              <option value="">25〜30年</option>
+              <option value="">30〜35年</option>
+              <option value="">35〜40年</option>
+              <option value="">35〜40年</option>
+            </select>
+          </div>
+          <div class="item">
+            <label>車種</label>
+            <select>
+              <option value="">未選択</option>
+              <option value="">ロード</option>
+              <option value="">オフロード</option>
+              <option value="">ピスト</option>
+              <option value="">ミニベロ</option>
+            </select>
+          </div>
+          <hr />
+          <button class="main_btn">変更内容を保存</button>
+        </form>
+        <h1 class="main_heading">パスワード変更</h1>
+        <form>
+          <div class="item">
+            <label class="need">現在のパスワード</label><input type="text" />
+          </div>
+          <div class="item">
+            <label class="need">新しいパスワード</label
+            ><input type="text" placeholder="8文字以上" />
+          </div>
+          <hr />
+          <button class="main_btn">パスワードを変更する</button>
+          <p><a href="setting.php.html#">パスワードを忘れた方はこちら</a></p>
+        </form>
+      </main>
     </div>
     <div class="footer_links">
-    <ul>
-        <li><a href="setting.php.html#"><i class="fas fa-question"></i>よくある質問</a></li>
-        <li><a href="setting.php.html#"><i class="fas fa-envelope"></i>お問い合わせ</a></li>
-    </ul>
-</div>
-<footer>
-    <ul class="sns">
-        <li><a href="setting.php.html#"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="setting.php.html#"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="setting.php.html#"><i class="fab fa-instagram"></i></a></li>
-        <li><a href="setting.php.html#"><i class="fab fa-youtube"></i></a></li>
-    </ul>
-    <ul class="nav">
+      <ul>
+        <li>
+          <a href="setting.php.html#"
+            ><i class="fas fa-question"></i>よくある質問</a
+          >
+        </li>
+        <li>
+          <a href="setting.php.html#"
+            ><i class="fas fa-envelope"></i>お問い合わせ</a
+          >
+        </li>
+      </ul>
+    </div>
+    <footer>
+      <ul class="sns">
+        <li>
+          <a href="setting.php.html#"><i class="fab fa-facebook-f"></i></a>
+        </li>
+        <li>
+          <a href="setting.php.html#"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+          <a href="setting.php.html#"><i class="fab fa-instagram"></i></a>
+        </li>
+        <li>
+          <a href="setting.php.html#"><i class="fab fa-youtube"></i></a>
+        </li>
+      </ul>
+      <ul class="nav">
         <li><a href="contact.php.html">お問い合わせ</a></li>
         <li><a href="document_1.php.html">利用規約</a></li>
         <li><a href="document_2.php.html">プライバシポリシー</a></li>
         <li><a href="document_3.php.html">コミュニティーポリシー</a></li>
-        <li><a href="document_4.php.html">特定商取引に関する法律に基づく表示</a></li>
-    </ul>
-    <div class="Copyright">&#169; 2020 Tenmus</div>
-</footer></body>
-
+        <li>
+          <a href="document_4.php.html">特定商取引に関する法律に基づく表示</a>
+        </li>
+      </ul>
+      <div class="Copyright">&#169; 2020 Tenmus</div>
+    </footer>
+  </body>
 </html>

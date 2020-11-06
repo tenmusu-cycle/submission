@@ -88,7 +88,7 @@
             >
           </li>
           <li>
-            <a href="create_report.php.html#"
+            <a href="create_event.php.html#"
               ><i class="fas fa-question"></i><span class="txt">ヘルプ</span></a
             >
           </li>
@@ -100,7 +100,7 @@
           <a href="create_shop.php.html">スポットデータ作成</a>
         </div>
         <div class="account_link">
-          <a href="create_report.php.html#"
+          <a href="create_event.php.html#"
             ><img src="../../img/profile.jpg"
           /></a>
         </div>
@@ -135,17 +135,17 @@
               </li>
               <li>
                 <a href="create_report.php.html"
-                ><i class="far fa-file-alt"></i>レポート作成＊</a>
+                  ><i class="far fa-file-alt"></i>レポート作成＊</a>
               </li>
             </ul>
             <ul>
               <li>
-                <a href="create_report.php.html#"
+                <a href="create_event.php.html#"
                   ><i class="fas fa-book-open"></i>マガジン</a
                 >
               </li>
               <li>
-                <a href="create_report.php.html#"
+                <a href="create_event.php.html#"
                   ><i class="fas fa-shopping-cart"></i>ショップ</a
                 >
               </li>
@@ -304,7 +304,7 @@
     </header>
     <div class="wrap">
       <main>
-        <h1 class="main_heading">レポート作成</h1>
+        <h1 class="main_heading">ツアー作成</h1>
         <form>
                     <div class="item check">
                       <label class="need">エリア</label>
@@ -316,6 +316,62 @@
                       <label class="need">都道府県</label>
                       <div id="areaBox"></div>
                     </div>
+          <div class="item">
+            <label class="need">開始日時</label><input type="datetime-local" />
+          </div>
+          <div class="item">
+            <label class="need">終了日時</label><input type="datetime-local" />
+          </div>
+
+          <div class="item">
+            <label class="need">集合場所</label><input type="text" />
+          </div>
+          <div class="item">
+            <label class="need">解散場所</label><input type="text" />
+          </div>
+          <div class="item">
+            <label class="need">アクセス</label><input type="text" />
+          </div>
+          <div class="item">
+            <label class="need">旅費</label><input type="text" />
+          </div>
+
+          <div class="item check">
+            <div class="txt">公開設定</div>
+            <input
+              id="check1_1"
+              type="radio"
+              name="radio_1"
+              checked="checked"
+            />
+            <label for="check1_1">公開</label>
+            <input id="check1_2" type="radio" name="radio_1" />
+            <label for="check1_2">非公開</label>
+          </div>
+          <div class="item check">
+            <div class="txt">評価設定</div>
+            <input
+              id="check2_1"
+              type="radio"
+              name="radio_2"
+              checked="checked"
+            />
+            <label for="check2_1">受け付ける</label>
+            <input id="check2_2" type="radio" name="radio_2" />
+            <label for="check2_2">受け付けない</label>
+          </div>
+          <div class="item check">
+            <div class="txt">コメント設定</div>
+            <input
+              id="check3_1"
+              type="radio"
+              name="radio_3"
+              checked="checked"
+            />
+            <label for="check3_1">受け付ける</label>
+            <input id="check3_2" type="radio" name="radio_3" />
+            <label for="check3_2">受け付けない</label>
+          </div>
           <div class="item">
             <label class="need">タイトル</label><input type="text" />
           </div>
@@ -345,12 +401,12 @@
     <div class="footer_links">
       <ul>
         <li>
-          <a href="create_report.php.html#"
+          <a href="create_event.php.html#"
             ><i class="fas fa-question"></i>よくある質問</a
           >
         </li>
         <li>
-          <a href="create_report.php.html#"
+          <a href="create_event.php.html#"
             ><i class="fas fa-envelope"></i>お問い合わせ</a
           >
         </li>
@@ -359,18 +415,16 @@
     <footer>
       <ul class="sns">
         <li>
-          <a href="create_report.php.html#"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
+          <a href="create_event.php.html#"><i class="fab fa-facebook-f"></i></a>
         </li>
         <li>
-          <a href="create_report.php.html#"><i class="fab fa-twitter"></i></a>
+          <a href="create_event.php.html#"><i class="fab fa-twitter"></i></a>
         </li>
         <li>
-          <a href="create_report.php.html#"><i class="fab fa-instagram"></i></a>
+          <a href="create_event.php.html#"><i class="fab fa-instagram"></i></a>
         </li>
         <li>
-          <a href="create_report.php.html#"><i class="fab fa-youtube"></i></a>
+          <a href="create_event.php.html#"><i class="fab fa-youtube"></i></a>
         </li>
       </ul>
       <ul class="nav">
