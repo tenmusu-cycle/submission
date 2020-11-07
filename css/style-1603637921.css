@@ -292,6 +292,18 @@ form .item {
   .document table tr:nth-child(odd) {
     background: #f5f5f5; }
 
+.pager {
+  padding: 20px 0; }
+  .pager ul {
+    display: flex;
+    justify-content: center; }
+    .pager ul li a {
+      font-weight: bold;
+      padding: 0.2em;
+      font-size: 17px; }
+      .pager ul li a:hover {
+        color: #ff7382; }
+
 ul.content_data {
   display: flex;
   padding: 1em 0;
@@ -993,8 +1005,30 @@ ul.list_route {
       border-radius: 5px;
       background: #ff7382;
       color: #fafafa; }
-.top_page .app_links img {
-  width: 100%; }
+.top_page .app_links .inner {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  align-items: center; }
+  @media only screen and (max-width: 420px) {
+    .top_page .app_links .inner {
+      display: block; } }
+  .top_page .app_links .inner .links h3 {
+    font-size: 20px;
+    text-align: center; }
+  .top_page .app_links .inner .links ul {
+    display: flex;
+    align-items: center; }
+    @media only screen and (max-width: 420px) {
+      .top_page .app_links .inner .links ul {
+        flex-direction: column; } }
+    .top_page .app_links .inner .links ul li a img {
+      width: auto;
+      height: 83px; }
+  .top_page .app_links .inner .img_box {
+    flex: 1; }
+    .top_page .app_links .inner .img_box img {
+      width: 100%; }
 .top_page .sponsorship {
   padding-top: 100px; }
   .top_page .sponsorship .inner {
@@ -1009,12 +1043,14 @@ ul.list_route {
       text-align: center; }
     .top_page .sponsorship .inner ul li {
       display: inline-block;
-      border-right: solid 1px #aaa;
       margin-bottom: 5px; }
       .top_page .sponsorship .inner ul li a {
         display: block;
         line-height: 1.2;
         padding: 0 1.5em; }
+        .top_page .sponsorship .inner ul li a img {
+          width: auto;
+          height: 27px; }
 
 .content_route {
   max-width: 800px;
