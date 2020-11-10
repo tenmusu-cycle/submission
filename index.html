@@ -19,6 +19,49 @@
     <link rel="stylesheet" href="css/style-1603637921.css" />
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/style.js"></script>
+    <script src="../../js/common.js"></script>
+    <script type="text/javascript">
+      window.addEventListener("DOMContentLoaded", function (e) {
+        search();
+      });
+
+      function search(e) {
+        // ルート
+        getAllRoutes().then(routeDatas => {
+          var parent = ($(".list_route"))[0];
+          while (parent.firstChild) {
+              // NodeListは不変ではないので、処理ごとにparent.firstChildは変化
+              parent.removeChild(parent.firstChild);
+          }
+
+          // 検索結果から要素を作ってリストに詰める
+          const outputCount = (routeDatas.routes.length > 9)? 9 : routeDatas.routes.length;
+          for (var i = 0; i < outputCount; i++) {
+            var routeData = routeDatas.routes[i];
+            var listData = createRouteListItem(routeData, "page/");
+            parent.appendChild(listData);
+          }
+        });
+
+        // スポット
+        getAllSpots().then(spotDatas => {
+          // TODO : 変更 クラス名が変わったら合わせる
+          var parent = ($(".list_route"))[1];
+          while (parent.firstChild) {
+              // NodeListは不変ではないので、処理ごとにparent.firstChildは変化
+              parent.removeChild(parent.firstChild);
+          }
+
+          // 検索結果から要素を作ってリストに詰める
+          const outputCount = (spotDatas.spots.length > 9)? 9 : spotDatas.spots.length;
+          for (var i = 0; i < outputCount; i++) {
+            var spotData = spotDatas.spots[i];
+            var listData = createSpotListItem(spotData, "page/");
+            parent.appendChild(listData);
+          }
+        });
+      }
+    </script>
 
     <title>Tenmusu みんなでつくる、サイクルルート</title>
     <link
@@ -71,10 +114,10 @@
           </li>
         </ul>
         <div class="post_btn">
-          <a href="page/main/create_route.php.html">ルートデータ作成</a>
+          <a href="page/main/create_route.php.html">ルート作成</a>
         </div>
         <div class="post_btn">
-          <a href="page/main/create_shop.php.html">スポットデータ作成</a>
+          <a href="page/main/create_shop.php.html">スポット作成</a>
         </div>
         <div class="account_link">
           <a href="index.html#"><img src="img/profile.jpg" /></a>
@@ -86,12 +129,12 @@
             <ul>
               <li>
                 <a href="page/main/create_route.php.html"
-                  ><i class="fas fa-biking"></i>ルートデータ作成</a
+                  ><i class="fas fa-biking"></i>ルート作成</a
                 >
               </li>
               <li>
                 <a href="page/main/create_shop.php.html"
-                  ><i class="fas fa-store"></i>スポットデータ作成</a
+                  ><i class="fas fa-store"></i>スポット作成</a
                 >
               </li>
               <li>
@@ -193,12 +236,12 @@
             <ul>
               <li>
                 <a href="page/main/create_route.php.html"
-                  ><i class="fas fa-biking"></i>ルートデータ作成</a
+                  ><i class="fas fa-biking"></i>ルート作成</a
                 >
               </li>
               <li>
                 <a href="page/main/create_shop.php.html"
-                  ><i class="fas fa-store"></i>スポットデータ作成</a
+                  ><i class="fas fa-store"></i>スポット作成</a
                 >
               </li>
               <li>
@@ -287,34 +330,19 @@
         <h2>Tenmusuにできるとこ</h2>
         <ul class="about_list">
           <li>
-            <img src="img/top/mv_img.png" />
-            <h4>タイトルテキスト。。タイトルテキスト。。</h4>
-            <p>
-              テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。
-            </p>
-            <p>
-              テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。
-            </p>
+            <img src="img/top/about/img01.svg" />
+            <h4>趣味や目的別に<br>ルートの検索ができる!</h4>
+            <p>定番のルートはもちろん、サイクリスト向けの施設や人気のスポット、美味しいお店まで、ライドの目的や難易度別にルートを検索できます。</p>
           </li>
           <li>
-            <img src="img/top/mv_img.png" />
-            <h4>タイトルテキスト。。タイトルテキスト。。</h4>
-            <p>
-              テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。
-            </p>
-            <p>
-              テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。
-            </p>
+            <img src="img/top/about/img02.svg" />
+            <h4>サイクリスト同士で<br>情報や体験をシェア!</h4>
+            <p>サイクリスト同士がつながるので、最新のルートや、情報が入ってきたり、イベントに参加したり、今まで以上にサイクリングライフの幅が広がります。</p>
           </li>
           <li>
-            <img src="img/top/mv_img.png" />
-            <h4>タイトルテキスト。。タイトルテキスト。。</h4>
-            <p>
-              テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。
-            </p>
-            <p>
-              テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。テキスト。。
-            </p>
+            <img src="img/top/about/img03.svg" />
+            <h4>ルート作成や、施設利用で<br>ポイントやクーポンGET!</h4>
+            <p>おすすめスポットや施設を通るルートを作成してポイントをもらったり、施設利用時にクーポンが使えたりと、サイクリストだけのおトクがいっぱいです。</p>
           </li>
         </ul>
       </div>
@@ -325,7 +353,7 @@
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/PY4ExLQyF4w"
+              src="https://www.youtube.com/embed/gSucou3IJJA"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
@@ -334,7 +362,7 @@
         </div>
       </div>
       <div class="entry">
-        <img src="img/top/mv_img.png" />
+        <img src="img/top/entry_img.png" />
         <div class="inner">
           <div class="btn"><a href="page/login/login.php.html">新規登録はこちらから</a></div>
         </div>
@@ -342,427 +370,47 @@
       <div class="content_list">
         <h3>注目のルート一覧</h3>
         <ul class="list_route">
-          <li>
-            <a href="page/content/route.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head">
-                  <span class="day">2020/09/26</span>
-                  <span class="photo"><i class="fas fa-camera"></i>17</span>
-                  <span class="like on"><i class="fas fa-heart"></i>253</span>
-                </div>
-                <h2>投稿タイトルテキストが入りま...</h2>
-                <div class="foot">
-                  <div class="user">
-                    <img src="img/profile.jpg" />ユーザー名
-                  </div>
-                  <div class="distance">距離:148km</div>
-                  <div class="time">時間:6:34</div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/route.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head">
-                  <span class="day">2020/09/26</span>
-                  <span class="photo"><i class="fas fa-camera"></i>17</span>
-                  <span class="like on"><i class="fas fa-heart"></i>253</span>
-                </div>
-                <h2>投稿タイトルテキストが入りま...</h2>
-                <div class="foot">
-                  <div class="user">
-                    <img src="img/profile.jpg" />ユーザー名
-                  </div>
-                  <div class="distance">距離:148km</div>
-                  <div class="time">時間:6:34</div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/route.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head">
-                  <span class="day">2020/09/26</span>
-                  <span class="photo"><i class="fas fa-camera"></i>17</span>
-                  <span class="like on"><i class="fas fa-heart"></i>253</span>
-                </div>
-                <h2>投稿タイトルテキストが入りま...</h2>
-                <div class="foot">
-                  <div class="user">
-                    <img src="img/profile.jpg" />ユーザー名
-                  </div>
-                  <div class="distance">距離:148km</div>
-                  <div class="time">時間:6:34</div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/route.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head">
-                  <span class="day">2020/09/26</span>
-                  <span class="photo"><i class="fas fa-camera"></i>17</span>
-                  <span class="like on"><i class="fas fa-heart"></i>253</span>
-                </div>
-                <h2>投稿タイトルテキストが入りま...</h2>
-                <div class="foot">
-                  <div class="user">
-                    <img src="img/profile.jpg" />ユーザー名
-                  </div>
-                  <div class="distance">距離:148km</div>
-                  <div class="time">時間:6:34</div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/route.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head">
-                  <span class="day">2020/09/26</span>
-                  <span class="photo"><i class="fas fa-camera"></i>17</span>
-                  <span class="like on"><i class="fas fa-heart"></i>253</span>
-                </div>
-                <h2>投稿タイトルテキストが入りま...</h2>
-                <div class="foot">
-                  <div class="user">
-                    <img src="img/profile.jpg" />ユーザー名
-                  </div>
-                  <div class="distance">距離:148km</div>
-                  <div class="time">時間:6:34</div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/route.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head">
-                  <span class="day">2020/09/26</span>
-                  <span class="photo"><i class="fas fa-camera"></i>17</span>
-                  <span class="like on"><i class="fas fa-heart"></i>253</span>
-                </div>
-                <h2>投稿タイトルテキストが入りま...</h2>
-                <div class="foot">
-                  <div class="user">
-                    <img src="img/profile.jpg" />ユーザー名
-                  </div>
-                  <div class="distance">距離:148km</div>
-                  <div class="time">時間:6:34</div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/route.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head">
-                  <span class="day">2020/09/26</span>
-                  <span class="photo"><i class="fas fa-camera"></i>17</span>
-                  <span class="like on"><i class="fas fa-heart"></i>253</span>
-                </div>
-                <h2>投稿タイトルテキストが入りま...</h2>
-                <div class="foot">
-                  <div class="user">
-                    <img src="img/profile.jpg" />ユーザー名
-                  </div>
-                  <div class="distance">距離:148km</div>
-                  <div class="time">時間:6:34</div>
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/route.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head">
-                  <span class="day">2020/09/26</span>
-                  <span class="photo"><i class="fas fa-camera"></i>17</span>
-                  <span class="like on"><i class="fas fa-heart"></i>253</span>
-                </div>
-                <h2>投稿タイトルテキストが入りま...</h2>
-                <div class="foot">
-                  <div class="user">
-                    <img src="img/profile.jpg" />ユーザー名
-                  </div>
-                  <div class="distance">距離:148km</div>
-                  <div class="time">時間:6:34</div>
-                </div>
-              </div>
-            </a>
-          </li>
         </ul>
         <div class="more_links">
           <a href="page/list/list_route.php.html">もっと見る</a>
         </div>
         <h3>注目のスポット一覧</h3>
         <ul class="list_route">
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />
-                  カテゴリ：カフェ・スイーツ<br />
-                  営業時間：11:00～23:00<br />
-                  特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />カテゴリ：カフェ・スイーツ<br />営業時間：11:00～23:00<br />特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />
-                  カテゴリ：カフェ・スイーツ<br />
-                  営業時間：11:00～23:00<br />
-                  特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />
-                  カテゴリ：カフェ・スイーツ<br />
-                  営業時間：11:00～23:00<br />
-                  特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />
-                  カテゴリ：カフェ・スイーツ<br />
-                  営業時間：11:00～23:00<br />
-                  特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />
-                  カテゴリ：カフェ・スイーツ<br />
-                  営業時間：11:00～23:00<br />
-                  特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />
-                  カテゴリ：カフェ・スイーツ<br />
-                  営業時間：11:00～23:00<br />
-                  特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />
-                  カテゴリ：カフェ・スイーツ<br />
-                  営業時間：11:00～23:00<br />
-                  特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />
-                  カテゴリ：カフェ・スイーツ<br />
-                  営業時間：11:00～23:00<br />
-                  特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />
-                  カテゴリ：カフェ・スイーツ<br />
-                  営業時間：11:00～23:00<br />
-                  特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />
-                  カテゴリ：カフェ・スイーツ<br />
-                  営業時間：11:00～23:00<br />
-                  特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="page/content/shop.php.html">
-              <div class="img_box">
-                <img src="img/bg_img.jpeg" />
-              </div>
-              <div class="txt_box">
-                <div class="head"></div>
-                <h2>OVE 南青山</h2>
-                <div class="foot">
-                  住所：長崎県長崎市浜町10-10 (2F・3F)<br />
-                  カテゴリ：カフェ・スイーツ<br />
-                  営業時間：11:00～23:00<br />
-                  特典：あり
-                </div>
-              </div>
-            </a>
-          </li>
         </ul>
         <div class="more_links">
           <a href="page/list/list_shop.php.html">もっと見る</a>
         </div>
       </div>
-      <div class="app_links">
-        <img src="img/top/app.png" />
-      </div>
-      <div class="sponsorship">
-        <div class="inner">
-          <h4>協賛</h4>
-          <ul>
-            <li><a href="index.html#">会社名会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-            <li><a href="index.html#">会社名</a></li>
-          </ul>
+        <div class="app_links">
+          <div class="inner">
+            <div class="links">
+              <h3>アプリのダウンロードはこちら！</h3>
+              <ul>
+                <li>
+                  <a
+                    href='http://play.google.com/store/?pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img
+                      width='200' alt='Google Play で手に入れよう'
+                      src='https://play.google.com/intl/ja/badges/static/images/badges/ja_badge_web_generic.png' /></a>
+                </li>
+                <li>
+                  <a href="https://apps.apple.com/us/app/youtube-watch-listen-stream/id544007664?itsct=apps_box&amp;itscg=30200"
+                    style="display: inline-block; overflow: hidden; border-radius: 13px; width: 200px; height: 60px;"><img
+                      src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/ja-JP?size=250x83&amp;releaseDate=1347321600&h=d87bfd8468ffa40434a269e89783540a"
+                      alt="Download on the App Store" style="border-radius: 10px; width: 200px; height: 60px;"></a>
+                </li>
+              </ul>
+            </div>
+            <div class="img_box"> <img src="img/top/app.png"></div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="footer_links">
+        <div class="sponsorship">
+          <div class="inner">
+            <h4>パートナー</h4>
+            <ul>
+              <li><a target=”_blank” href="https://bikeis.life/"><img src="img/top/sponsorship/bikeislife.png"></a></li>
+            </ul>
+          </div>
+        </div>    <div class="footer_links">
       <ul>
         <li>
           <a href="index.html#"><i class="fas fa-question"></i>よくある質問</a>
